@@ -20,7 +20,7 @@
 填写完成后，使用[fun工具](https://github.com/alibaba/funcraft)进行部署：
 
 ```sh
-git@gitlab.alibaba-inc.com:awesome-fc/mini-app-todo-list-server.git
+git clone https://github.com/awesome-fc/fc-mini-app-server.git
 cd mini-app-todo-list-server
 IGNORE_TPL_VALIDATION=true fun install
 fun package
@@ -29,7 +29,7 @@ fun deploy --use-ros --stack-name todo-list4 -p AppId=2021001106651001 -p DBInst
 
 部署成功后，会生成一个session的URL:
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/29608/1579175872811-ceb84e59-a4b4-4b15-bb74-be410784c2fd.png)
+![image.png](mini-app-session-url.jpg)
 
 可以测试一下是否部署成功：
 
@@ -40,7 +40,7 @@ Error: authCode required
 
 如果收到"authCode required"，则表明部署成功。
 
-部署成功后，会输出5个参数(AccountId, Region, ServiceName, SessionFunctionName, DBFunctionName)，把它们配置在[小程序客户端项目](http://gitlab.alibaba-inc.com/awesome-fc/mini-app-todo-list-client)中，客户端就能访问我们部署的服务了。
+部署成功后，会输出5个参数(AccountId, Region, ServiceName, SessionFunctionName, DBFunctionName)，把它们配置在[小程序客户端项目](https://github.com/awesome-fc/fc-mini-app-client)中，客户端就能访问我们部署的服务了。
 
 ### 关于日志
 
@@ -50,7 +50,7 @@ Error: authCode required
 
 客户端和服务端的交互流程如下：
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/29608/1579083077456-661b637f-6a20-49ba-8552-5911fba3eddc.png)
+![image.png](mini-app-data-flow.png)
 
 其中1-4步只需要在首次认证的时间执行，5-7步是后续访问数据的时候执行。
 
